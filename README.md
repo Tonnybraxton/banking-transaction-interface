@@ -1,5 +1,7 @@
 # PesaFlow · KES Banking Transaction Interface
 
+[![CI](https://github.com/Tonnybraxton/banking-transaction-interface/actions/workflows/ci.yml/badge.svg)](https://github.com/Tonnybraxton/banking-transaction-interface/actions/workflows/ci.yml)
+
 A staff-operated Django banking assessment: open accounts, deposit, withdraw,
 transfer, safely close dormant accounts, and disburse a one-time **KES 10,000.00**
 loan. Every money movement has an atomic balance update and an audit receipt.
@@ -206,10 +208,10 @@ is 85%. Coverage is a measurement of executed code, not a guarantee of correctne
 All five quality checks above passed locally. Migrations and `seed_demo` were also
 run successfully, and the six main workflows were exercised in the browser.
 
-Desktop and mobile screenshots are real captures. Mobile inspection found
-horizontal overflow and prompted a layout correction; a subsequent visual check
-was unavailable during the review session, so that correction is not presented
-as visually verified.
+Desktop and mobile screenshots are real captures. Browser checks covered the
+dashboard and account layout at desktop, 390px mobile and 768px tablet widths.
+The mobile dashboard and account detail fit their viewport without page-level
+horizontal overflow; wide data tables scroll within their own containers.
 
 ## Security, concurrency and limits
 
