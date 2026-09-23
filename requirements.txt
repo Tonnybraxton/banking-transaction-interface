@@ -1,0 +1,6 @@
+Django>=5.2.8,<5.3
+python-dotenv>=1.1,<2
+pytest>=8,<10
+pytest-django>=4.11,<5
+pytest-cov>=6,<8
+ruff>=0.12,<1

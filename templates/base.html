@@ -1,0 +1,19 @@
+{% load static %}<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}PesaFlow · Banking workspace{% endblock %}</title>
+<link rel="stylesheet" href="{% static 'vendor/bootstrap.min.css' %}"><link rel="stylesheet" href="{% static 'css/app.css' %}">
+<script src="{% static 'js/app.js' %}" defer></script></head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+{% if user.is_authenticated %}<aside class="sidebar"><a class="brand" href="{% url 'banking:dashboard' %}"><span class="brand-mark">P</span><span>PesaFlow<small>DEMO BANK</small></span></a>
+<div class="nav-label">WORKSPACE</div><nav aria-label="Main navigation">
+<a class="nav-item {% if request.resolver_match.url_name == 'dashboard' %}selected{% endif %}" href="{% url 'banking:dashboard' %}"><span aria-hidden="true">◫</span> Overview</a>
+<a class="nav-item {% if request.resolver_match.url_name == 'accounts' or account %}selected{% endif %}" href="{% url 'banking:accounts' %}"><span aria-hidden="true">▤</span> Bank accounts</a>
+<a class="nav-item {% if request.resolver_match.url_name == 'ledger' %}selected{% endif %}" href="{% url 'banking:ledger' %}"><span aria-hidden="true">⇄</span> Transaction ledger</a>
+<a class="nav-item" href="{% url 'banking:create' %}"><span aria-hidden="true">＋</span> Open an account</a></nav>
+<div class="sidebar-note"><span class="live-dot"></span> A space to explore banking<p>Fictional customers. Demo money.<br>Real attention to the details.</p></div>
+<div class="profile"><span class="avatar">{{ user.username|first|upper }}</span><div><strong>{{ user.username }}</strong><small>{% if perms.banking.manage_accounts %}Bank manager{% else %}Bank teller{% endif %}</small></div>
+<form action="{% url 'logout' %}" method="post">{% csrf_token %}<button class="signout" title="Sign out" aria-label="Sign out">↗</button></form></div></aside>{% endif %}
+<div class="{% if user.is_authenticated %}workspace{% else %}guest{% endif %}">
+{% if user.is_authenticated %}<header class="topbar"><span>Banking workspace <span class="slash">/</span> <strong>{% block breadcrumb %}Overview{% endblock %}</strong></span><span class="environment"><span class="live-dot"></span> Demo environment</span></header>{% endif %}
+<main id="main">{% for message in messages %}<div class="alert alert-{% if message.tags == 'error' %}danger{% else %}success{% endif %}" role="status">{{ message }}</div>{% endfor %}{% block content %}{% endblock %}</main>
+<footer>PesaFlow Demo Bank <span>Educational demonstration only · No real money or banking services</span>{% if user.is_authenticated %}<form class="mobile-signout" action="{% url 'logout' %}" method="post">{% csrf_token %}<button class="btn btn-secondary" type="submit">Sign out</button></form>{% endif %}</footer></div></body></html>
