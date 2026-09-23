@@ -38,13 +38,21 @@ place of `python` in subsequent commands; changing execution policy is unnecessa
 
 ## Screenshots
 
-Real captures of the running local application with fictional demo records.
+Real, full-page captures of the running local application with fictional demo
+records, saved as lossless PNGs at 2× pixel density. Click any image to view it
+at its original resolution.
+
+**Staff dashboard**
 
 ![Staff dashboard](docs/screenshots/dashboard.png)
 
-| Account and linked loan | Transfer receipt |
-| --- | --- |
-| ![Account with KES 27,500 balance and KES 10,000 loan](docs/screenshots/account-loan.png) | ![Transfer receipt](docs/screenshots/transfer-receipt.png) |
+**Account and linked loan**
+
+![Account with KES 27,500 balance and KES 10,000 loan](docs/screenshots/account-loan.png)
+
+**Transfer receipt and paired ledger records**
+
+![Transfer receipt](docs/screenshots/transfer-receipt.png)
 
 <details>
 <summary>Mobile dashboard</summary>
